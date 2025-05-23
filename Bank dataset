@@ -1,0 +1,35 @@
+# Load necessary library
+library(ggplot2)
+
+# Read the dataset
+d <- read.csv("C:/R/bank.csv")
+
+# View first few rows
+print(head(d))  # Preview the data
+
+# Print column names
+v <- colnames(d)
+print(v)
+
+# Check for missing values
+q <- sum(is.na(d))
+print(paste("Total missing values:", q))
+
+# Column-wise missing value count
+print(colSums(is.na(d)))
+
+# Remove rows with any missing values (optional)
+d <- na.omit(d)
+
+# EDA: Structure and summary
+str(d)
+summary(d)
+
+# Basic Bar Plot: Marital status vs Housing
+ggplot(data = d, aes(x = marital, fill = housing)) +
+  geom_bar(color = "purple") +
+  labs(title = "Marital Status vs Housing (Bank Marketing Dataset)",
+       x = "Marital Status",
+       y = "Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
