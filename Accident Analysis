@@ -1,0 +1,21 @@
+d<-read.csv("C:/R/b.csv")
+print(head(d))
+#printing the initial rows of the accident  data set
+v<-colnames(d)
+print(v)
+#printing the column names in the data set
+q<-sum(is.na(d))
+print(q)
+#print the total missing values in the data set 
+colSums(is.na(d))
+#lets check the missing column values
+w<-na.omit(d)
+
+str(d)
+summary(d)
+#plotting the type of vehicles,road surface are,type of collisons contributing to the accident
+print(ggplot(data=d)+
+        geom_boxplot(mapping = aes(x=Type_of_vehicle,y=Road_surface_conditions ,color=Type_of_collision ))+
+        geom_point(mapping = aes(x=Type_of_collision ,y=Weather_conditions),color="yellow")+
+                       labs(title = " Road Accident data )", 
+                               x = "type of vehicle ", y = "area"))
