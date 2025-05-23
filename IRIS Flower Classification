@@ -1,0 +1,18 @@
+iris<-read.csv("C:/R/IRIS.csv")
+#reading the iris file 
+h<-head(iris)
+# the top six rows are shown
+print(h)
+colnames(iris)
+#the column names are represented
+#here the categorical variables are species while the continuous variables are sepal length,sepal width,petal length,petal width
+print(iris$sepal_length<1)
+print(iris$petal_width>1.9)
+#tried to identify if any sepal length is below one but none is less than one
+colors=c("yellow","red","purple","blue","black")
+
+barplot(table(iris$sepal_length),xlab="length",ylab="count",main="sepal length  from iris data",col=colors,beside=TRUE)
+legend("topright",legend=c("4-5","5-6","6-7","7-8","8-9"),fill = colors)
+#bar plotting the sepal length
+print("successfully plotted")
+
